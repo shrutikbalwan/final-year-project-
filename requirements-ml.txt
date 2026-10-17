@@ -1,0 +1,4 @@
+# Optional analytics training/evaluation dependencies (CPU only).
+-r requirements.txt
+scikit-learn>=1.5,<2
+joblib>=1.3,<2

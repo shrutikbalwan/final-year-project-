@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "event_id": "evt-2026-000043",
+  "incident_id": "incident-plant7-0009",
+  "device_id": "helmet-plant7-worker104",
+  "workplace_id": "plant7-zone-c",
+  "event_type": "impact_detected",
+  "severity": "unknown",
+  "occurred_at": "2026-10-16T12:31:00Z",
+  "reported_at": "2026-10-16T12:31:02Z",
+  "description": "Impact signal reported for review.",
+  "related_reading_ids": ["reading-0003"]
+}

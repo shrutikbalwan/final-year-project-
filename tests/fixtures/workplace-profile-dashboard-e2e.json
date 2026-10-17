@@ -1,0 +1,25 @@
+{
+  "profiles": [
+    {
+      "workplace_id": "synthetic-dashboard-workplace",
+      "profile_name": "Synthetic dashboard test profile",
+      "max_telemetry_age_seconds": 3600,
+      "max_reading_age_seconds": 3600,
+      "required_measurements": ["temperature"],
+      "score_bands": {"advisory": 20, "warning": 50, "critical": 80},
+      "rules": [
+        {
+          "rule_id": "synthetic-dashboard-temp-critical",
+          "measurement_type": "temperature",
+          "unit_code": "Cel",
+          "operator": "gte",
+          "threshold": 35,
+          "weight": 90,
+          "risk_level": "Critical",
+          "reason": "Synthetic dashboard temperature rule matched"
+        }
+      ],
+      "escalation_steps": []
+    }
+  ]
+}

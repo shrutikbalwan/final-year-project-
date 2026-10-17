@@ -1,0 +1,8 @@
+﻿# Core runtime and development dependencies
+# Python 3.10+; install with: python -m pip install -r requirements.txt
+numpy>=1.26,<3
+opencv-python>=4.9,<5
+fastapi>=0.110,<1
+uvicorn[standard]>=0.27,<1
+pwdlib[argon2]>=0.2,<1
+PyJWT>=2.9,<3

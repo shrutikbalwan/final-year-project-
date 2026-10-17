@@ -1,0 +1,15 @@
+{
+  "weights": ".\\computer-vision\\models\\ppe-custom.pt",
+  "confidence": 0.35,
+  "device": "cpu",
+  "camera_id": "synthetic-camera-001",
+  "workplace_id": "synthetic-workplace-001",
+  "person_class_names": ["person"],
+  "requested_classes": ["person", "hardhat", "no-hardhat"],
+  "restricted_zones": [
+    {
+      "zone_id": "synthetic-restricted-zone-1",
+      "polygon": [[0.05, 0.10], [0.45, 0.10], [0.45, 0.90], [0.05, 0.90]]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "incident_id": "incident-plant7-0009",
+  "device_id": "helmet-plant7-worker104",
+  "workplace_id": "plant7-zone-c",
+  "status": "open",
+  "severity": "Warning",
+  "risk_score": 35,
+  "opened_at": "2026-10-16T12:31:00Z",
+  "updated_at": "2026-10-16T12:31:02Z",
+  "event_ids": ["evt-2026-000043"],
+  "reason": "Configured impact rule matched and requires supervisor review.",
+  "source": {
+    "telemetry_event_id": "evt-2026-000043",
+    "rule_ids": ["impact-rule"],
+    "reading_ids": ["reading-0003"]
+  },
+  "occurrence_count": 1,
+  "acknowledged_at": null,
+  "acknowledged_by": null,
+  "history": [
+    {
+      "entry_id": "history-incident-0009-created",
+      "action": "created",
+      "timestamp": "2026-10-16T12:31:00Z",
+      "actor": null,
+      "target": null,
+      "note": "Incident created from telemetry evaluation."
+    }
+  ]
+}

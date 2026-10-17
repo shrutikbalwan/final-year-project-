@@ -1,0 +1,18 @@
+{
+  "dataset": "keremberke/hard-hat-detection",
+  "dataset_revision": "694c61350faf9a6622586d6cf50f45e1631862dc",
+  "dataset_license": "CC BY 4.0 (as declared by the dataset card)",
+  "attribution": "Hard Hats dataset by Roboflow Universe Projects; source project https://universe.roboflow.com/roboflow-universe-projects/hard-hats-fhbh5/dataset/2",
+  "dataset_split": "test",
+  "expected_image_count": 2001,
+  "archive_path": "../private-datasets/hard-hat-detection/test.zip",
+  "archive_size_bytes": 114425180,
+  "archive_sha256": "e21ca22f4d69411af6e7c00b6d00ea30252867ac2d0f7cbef894b6ba9b9204c3",
+  "classes": ["Hardhat", "NO-Hardhat"],
+  "confidence_threshold": 0.25,
+  "iou_threshold": 0.5,
+  "latency_warmup_count": 10,
+  "latency_repeat_count": 3,
+  "latency_image_count": 100,
+  "training_overlap_status": "unresolved; benchmark results must be described as potentially overlapping"
+}

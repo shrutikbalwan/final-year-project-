@@ -1,0 +1,131 @@
+{
+  "$defs": {
+    "EventSeverity": {
+      "enum": [
+        "informational",
+        "low",
+        "medium",
+        "high",
+        "critical",
+        "unknown"
+      ],
+      "title": "EventSeverity",
+      "type": "string"
+    },
+    "EventType": {
+      "enum": [
+        "impact_detected",
+        "fall_detected",
+        "hazard_detected",
+        "manual_sos",
+        "near_miss",
+        "other"
+      ],
+      "title": "EventType",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "A safety-related event report; severity is descriptive, not a threshold.",
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "event_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+      "title": "Event Id",
+      "type": "string"
+    },
+    "incident_id": {
+      "anyOf": [
+        {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Incident Id"
+    },
+    "device_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+      "title": "Device Id",
+      "type": "string"
+    },
+    "workplace_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+      "title": "Workplace Id",
+      "type": "string"
+    },
+    "event_type": {
+      "$ref": "#/$defs/EventType"
+    },
+    "severity": {
+      "$ref": "#/$defs/EventSeverity"
+    },
+    "occurred_at": {
+      "description": "RFC 3339 timestamp in UTC, ending in Z or +00:00.",
+      "format": "date-time",
+      "pattern": "(?:Z|\\+00:00)$",
+      "title": "Occurred At",
+      "type": "string"
+    },
+    "reported_at": {
+      "description": "RFC 3339 timestamp in UTC, ending in Z or +00:00.",
+      "format": "date-time",
+      "pattern": "(?:Z|\\+00:00)$",
+      "title": "Reported At",
+      "type": "string"
+    },
+    "description": {
+      "anyOf": [
+        {
+          "maxLength": 2000,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Description"
+    },
+    "related_reading_ids": {
+      "items": {
+        "maxLength": 128,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+        "type": "string"
+      },
+      "maxItems": 64,
+      "title": "Related Reading Ids",
+      "type": "array"
+    }
+  },
+  "required": [
+    "event_id",
+    "device_id",
+    "workplace_id",
+    "event_type",
+    "severity",
+    "occurred_at",
+    "reported_at"
+  ],
+  "title": "SafetyEvent",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://smartsafetyhelmet.example/contracts/v1/safety_event.schema.json"
+}

@@ -1,0 +1,21 @@
+{
+  "dataset_name": "REPLACE_WITH_APPROVED_LABELED_TELEMETRY_DATASET",
+  "source": "REPLACE_WITH_SOURCE_OR_COLLECTION_RECORD",
+  "license": "REPLACE_WITH_VERIFIED_LICENSE",
+  "attribution": "REPLACE_WITH_REQUIRED_ATTRIBUTION",
+  "intended_use": "academic_evaluation",
+  "label_definition": "REPLACE_WITH_INDEPENDENT_HUMAN_REVIEW_LABEL_RULES; 0=normal, 1=anomaly",
+  "features": [
+    { "name": "temperature_c", "unit_code": "Cel" },
+    { "name": "humidity_pct", "unit_code": "%" },
+    { "name": "gas_concentration_ppm", "unit_code": "ppm" }
+  ],
+  "partitions": {
+    "train": ["REPLACE_TRAIN_DEVICE_ID"],
+    "validation": ["REPLACE_VALIDATION_DEVICE_ID"],
+    "test": ["REPLACE_TEST_DEVICE_ID"]
+  },
+  "random_seed": 42,
+  "n_estimators": 200,
+  "contamination": 0.05
+}

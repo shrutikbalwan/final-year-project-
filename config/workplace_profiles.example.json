@@ -1,0 +1,46 @@
+{
+  "profiles": [
+    {
+      "workplace_id": "plant7-zone-c",
+      "profile_name": "EXAMPLE DEVELOPMENT PROFILE - NOT FOR OPERATIONAL USE",
+      "max_telemetry_age_seconds": 120,
+      "max_reading_age_seconds": 120,
+      "required_measurements": ["temperature", "gas_concentration"],
+      "score_bands": {
+        "advisory": 10,
+        "warning": 30,
+        "critical": 60
+      },
+      "rules": [
+        {
+          "rule_id": "example-temperature-high",
+          "measurement_type": "temperature",
+          "unit_code": "Cel",
+          "operator": "gt",
+          "threshold": 40,
+          "weight": 20,
+          "risk_level": "Warning",
+          "reason": "Example temperature threshold exceeded."
+        },
+        {
+          "rule_id": "example-gas-high",
+          "measurement_type": "gas_concentration",
+          "unit_code": "ppm",
+          "operator": "gt",
+          "threshold": 100,
+          "weight": 60,
+          "risk_level": "Critical",
+          "reason": "Example gas concentration threshold exceeded."
+        }
+      ],
+      "escalation_steps": [
+        {
+          "minimum_risk_level": "Critical",
+          "after_seconds": 120,
+          "target": "site-safety-lead",
+          "repeat_every_seconds": 300
+        }
+      ]
+    }
+  ]
+}

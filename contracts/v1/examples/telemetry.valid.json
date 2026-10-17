@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0.0",
+  "event_id": "evt-2026-000042",
+  "device_id": "helmet-plant7-worker104",
+  "workplace_id": "plant7-zone-c",
+  "observed_at": "2026-10-16T12:30:00Z",
+  "readings": [
+    {
+      "reading_id": "reading-0001",
+      "sensor_id": "sensor-temp-01",
+      "measurement_type": "temperature",
+      "unit_code": "Cel",
+      "value": 31.4,
+      "reading_status": "valid",
+      "observed_at": "2026-10-16T12:29:58Z"
+    },
+    {
+      "reading_id": "reading-0002",
+      "sensor_id": "sensor-gas-01",
+      "measurement_type": "gas_concentration",
+      "unit_code": "ppm",
+      "value": null,
+      "reading_status": "missing",
+      "observed_at": "2026-10-16T12:29:58Z"
+    }
+  ],
+  "health": {
+    "schema_version": "1.0.0",
+    "device_id": "helmet-plant7-worker104",
+    "workplace_id": "plant7-zone-c",
+    "observed_at": "2026-10-16T12:29:59Z",
+    "battery_reading": {
+      "reading_id": "battery-0001",
+      "sensor_id": "power-monitor-01",
+      "measurement_type": "battery_charge",
+      "unit_code": "%",
+      "value": 86.0,
+      "reading_status": "valid",
+      "observed_at": "2026-10-16T12:29:58Z"
+    },
+    "connectivity_status": "connected",
+    "last_seen_at": "2026-10-16T12:29:59Z",
+    "last_seen_status": "valid"
+  }
+}

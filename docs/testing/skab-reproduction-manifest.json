@@ -1,0 +1,87 @@
+{
+  "dataset_name": "Skoltech Anomaly Benchmark (SKAB) v0.9 selected runs",
+  "source": "https://github.com/waico/SKAB",
+  "license": "GPL-3.0-only (repository license)",
+  "attribution": "Katser and Kozitsin, Skoltech Anomaly Benchmark, 2020; cite repository DOI 10.34740/KAGGLE/DSV/1693952",
+  "intended_use": "academic_evaluation",
+  "label_definition": "SKAB per-row anomaly label: 0 normal, 1 anomalous as supplied by dataset; this denotes benchmark process anomaly only.",
+  "features": [
+    {
+      "name": "accelerometer1_rms",
+      "unit_code": "g"
+    },
+    {
+      "name": "accelerometer2_rms",
+      "unit_code": "g"
+    },
+    {
+      "name": "current",
+      "unit_code": "A"
+    },
+    {
+      "name": "pressure",
+      "unit_code": "bar"
+    },
+    {
+      "name": "temperature",
+      "unit_code": "Cel"
+    },
+    {
+      "name": "thermocouple_temperature",
+      "unit_code": "Cel"
+    },
+    {
+      "name": "voltage",
+      "unit_code": "V"
+    },
+    {
+      "name": "volume_flow_rate_rms",
+      "unit_code": "L/min"
+    }
+  ],
+  "partitions": {
+    "train": [
+      "skab-valve1-0",
+      "skab-valve1-1",
+      "skab-valve1-2",
+      "skab-valve1-3",
+      "skab-valve1-4",
+      "skab-valve1-5",
+      "skab-valve1-6",
+      "skab-valve1-7",
+      "skab-valve1-8",
+      "skab-valve1-9",
+      "skab-valve2-0",
+      "skab-valve2-1",
+      "skab-valve2-2",
+      "skab-valve2-3",
+      "skab-other-1",
+      "skab-other-2",
+      "skab-other-3",
+      "skab-other-4",
+      "skab-other-5",
+      "skab-other-6"
+    ],
+    "validation": [
+      "skab-valve1-10",
+      "skab-valve1-11",
+      "skab-valve1-12",
+      "skab-other-7",
+      "skab-other-8",
+      "skab-other-9",
+      "skab-other-10"
+    ],
+    "test": [
+      "skab-valve1-13",
+      "skab-valve1-14",
+      "skab-valve1-15",
+      "skab-other-11",
+      "skab-other-12",
+      "skab-other-13",
+      "skab-other-14"
+    ]
+  },
+  "random_seed": 42,
+  "n_estimators": 200,
+  "contamination": 0.05
+}

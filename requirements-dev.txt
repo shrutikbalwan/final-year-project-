@@ -1,0 +1,6 @@
+﻿# Development checks
+-r requirements.txt
+-r requirements-ml.txt
+pytest>=8,<10
+jsonschema[format]>=4.21,<5
+httpx2>=2.13,<3

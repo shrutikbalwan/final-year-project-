@@ -1,0 +1,285 @@
+{
+  "$defs": {
+    "IncidentAction": {
+      "enum": [
+        "created",
+        "repeated",
+        "acknowledged",
+        "escalated",
+        "resolved",
+        "closed"
+      ],
+      "title": "IncidentAction",
+      "type": "string"
+    },
+    "IncidentHistoryEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "entry_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+          "title": "Entry Id",
+          "type": "string"
+        },
+        "action": {
+          "$ref": "#/$defs/IncidentAction"
+        },
+        "timestamp": {
+          "description": "RFC 3339 timestamp in UTC, ending in Z or +00:00.",
+          "format": "date-time",
+          "pattern": "(?:Z|\\+00:00)$",
+          "title": "Timestamp",
+          "type": "string"
+        },
+        "actor": {
+          "anyOf": [
+            {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Actor"
+        },
+        "target": {
+          "anyOf": [
+            {
+              "maxLength": 128,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Target"
+        },
+        "note": {
+          "anyOf": [
+            {
+              "maxLength": 2000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Note"
+        }
+      },
+      "required": [
+        "entry_id",
+        "action",
+        "timestamp"
+      ],
+      "title": "IncidentHistoryEntry",
+      "type": "object"
+    },
+    "IncidentSource": {
+      "additionalProperties": false,
+      "description": "Traceable origin references for a generated incident.",
+      "properties": {
+        "telemetry_event_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+          "title": "Telemetry Event Id",
+          "type": "string"
+        },
+        "rule_ids": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+            "type": "string"
+          },
+          "maxItems": 64,
+          "title": "Rule Ids",
+          "type": "array"
+        },
+        "reading_ids": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+            "type": "string"
+          },
+          "maxItems": 256,
+          "title": "Reading Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "telemetry_event_id"
+      ],
+      "title": "IncidentSource",
+      "type": "object"
+    },
+    "IncidentStatus": {
+      "enum": [
+        "open",
+        "acknowledged",
+        "resolved",
+        "closed"
+      ],
+      "title": "IncidentStatus",
+      "type": "string"
+    },
+    "RiskLevel": {
+      "enum": [
+        "Normal",
+        "Advisory",
+        "Warning",
+        "Critical",
+        "Unknown"
+      ],
+      "title": "RiskLevel",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "An incident record that groups one or more safety event IDs.",
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "incident_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+      "title": "Incident Id",
+      "type": "string"
+    },
+    "device_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+      "title": "Device Id",
+      "type": "string"
+    },
+    "workplace_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+      "title": "Workplace Id",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/IncidentStatus"
+    },
+    "severity": {
+      "$ref": "#/$defs/RiskLevel"
+    },
+    "risk_score": {
+      "minimum": 0,
+      "title": "Risk Score",
+      "type": "integer"
+    },
+    "opened_at": {
+      "description": "RFC 3339 timestamp in UTC, ending in Z or +00:00.",
+      "format": "date-time",
+      "pattern": "(?:Z|\\+00:00)$",
+      "title": "Opened At",
+      "type": "string"
+    },
+    "updated_at": {
+      "description": "RFC 3339 timestamp in UTC, ending in Z or +00:00.",
+      "format": "date-time",
+      "pattern": "(?:Z|\\+00:00)$",
+      "title": "Updated At",
+      "type": "string"
+    },
+    "reason": {
+      "maxLength": 2000,
+      "minLength": 1,
+      "title": "Reason",
+      "type": "string"
+    },
+    "source": {
+      "$ref": "#/$defs/IncidentSource"
+    },
+    "event_ids": {
+      "items": {
+        "maxLength": 128,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+        "type": "string"
+      },
+      "maxItems": 256,
+      "title": "Event Ids",
+      "type": "array"
+    },
+    "occurrence_count": {
+      "default": 1,
+      "minimum": 1,
+      "title": "Occurrence Count",
+      "type": "integer"
+    },
+    "acknowledged_at": {
+      "anyOf": [
+        {
+          "description": "RFC 3339 timestamp in UTC, ending in Z or +00:00.",
+          "format": "date-time",
+          "pattern": "(?:Z|\\+00:00)$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Acknowledged At"
+    },
+    "acknowledged_by": {
+      "anyOf": [
+        {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Acknowledged By"
+    },
+    "history": {
+      "items": {
+        "$ref": "#/$defs/IncidentHistoryEntry"
+      },
+      "maxItems": 512,
+      "minItems": 1,
+      "title": "History",
+      "type": "array"
+    }
+  },
+  "required": [
+    "incident_id",
+    "device_id",
+    "workplace_id",
+    "status",
+    "severity",
+    "risk_score",
+    "opened_at",
+    "updated_at",
+    "reason",
+    "source",
+    "history"
+  ],
+  "title": "Incident",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://smartsafetyhelmet.example/contracts/v1/incident.schema.json"
+}

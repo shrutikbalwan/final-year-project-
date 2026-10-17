@@ -1,0 +1,9 @@
+{
+  "reading_id": "reading-bad-01",
+  "sensor_id": "sensor-temp-01",
+  "measurement_type": "temperature",
+  "unit_code": "Cel",
+  "value": null,
+  "reading_status": "valid",
+  "observed_at": "2026-10-16T12:29:58Z"
+}

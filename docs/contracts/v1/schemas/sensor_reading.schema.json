@@ -1,0 +1,121 @@
+{
+  "$defs": {
+    "ReadingStatus": {
+      "enum": [
+        "valid",
+        "missing",
+        "stale",
+        "invalid"
+      ],
+      "title": "ReadingStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "One reported measurement with explicit unit and quality state.",
+  "properties": {
+    "reading_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+      "title": "Reading Id",
+      "type": "string"
+    },
+    "sensor_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$",
+      "title": "Sensor Id",
+      "type": "string"
+    },
+    "measurement_type": {
+      "description": "Stable quantity name, for example temperature or gas_concentration.",
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "^[a-z][a-z0-9_.-]*$",
+      "title": "Measurement Type",
+      "type": "string"
+    },
+    "unit_code": {
+      "description": "Machine-readable unit token; producers must document and use it consistently.",
+      "maxLength": 32,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9%._/\\[\\]-]+$",
+      "title": "Unit Code",
+      "type": "string"
+    },
+    "value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Finite measurement value, or null only when reading_status is missing.",
+      "title": "Value"
+    },
+    "reading_status": {
+      "$ref": "#/$defs/ReadingStatus"
+    },
+    "observed_at": {
+      "description": "RFC 3339 timestamp in UTC, ending in Z or +00:00.",
+      "format": "date-time",
+      "pattern": "(?:Z|\\+00:00)$",
+      "title": "Observed At",
+      "type": "string"
+    }
+  },
+  "required": [
+    "reading_id",
+    "sensor_id",
+    "measurement_type",
+    "unit_code",
+    "value",
+    "reading_status",
+    "observed_at"
+  ],
+  "title": "SensorReading",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://smartsafetyhelmet.example/contracts/v1/sensor_reading.schema.json",
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "reading_status": {
+            "const": "missing"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "value": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "reading_status": {
+            "enum": [
+              "valid",
+              "stale",
+              "invalid"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "value": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  ]
+}

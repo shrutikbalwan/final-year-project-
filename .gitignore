@@ -1,0 +1,70 @@
+﻿# Python environments and local configuration
+.venv/
+venv/
+env/
+ENV/
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Secrets and local environment files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Any project-local virtual environment (including diagnostic variants)
+.venv*/
+
+# Local persistent application data
+data/
+*.sqlite3
+*.db
+
+# Computer-vision footage, datasets, runs, and model weights (keep locally only)
+computer-vision/recordings/
+computer-vision/private-datasets/
+computer-vision/datasets/
+computer-vision/runs/
+computer-vision/models/
+*.pt
+*.onnx
+
+# Experimental ML data, model artifacts, and local provenance manifests
+machine-learning/private-datasets/
+machine-learning/artifacts/
+machine-learning/config/*.local.json
+*.joblib
+
+# React dashboard build and local install artifacts
+web-dashboard/node_modules/
+web-dashboard/dist/
+web-dashboard/coverage/
+web-dashboard/tsconfig.tsbuildinfo
+
+# Flutter mobile app
+mobile-app/.dart_tool/
+mobile-app/.flutter-plugins
+mobile-app/.flutter-plugins-dependencies
+mobile-app/.packages
+mobile-app/build/
+mobile-app/android/.gradle/
+mobile-app/android/local.properties
+mobile-app/android/*.iml
+mobile-app/config/development.json
+

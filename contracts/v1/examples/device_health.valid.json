@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "device_id": "helmet-plant7-worker104",
+  "workplace_id": "plant7-zone-c",
+  "observed_at": "2026-10-16T12:30:00Z",
+  "battery_reading": {
+    "reading_id": "battery-0002",
+    "sensor_id": "power-monitor-01",
+    "measurement_type": "battery_charge",
+    "unit_code": "%",
+    "value": null,
+    "reading_status": "missing",
+    "observed_at": "2026-10-16T12:29:58Z"
+  },
+  "connectivity_status": "unknown",
+  "last_seen_at": null,
+  "last_seen_status": "missing"
+}
